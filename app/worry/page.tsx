@@ -38,8 +38,8 @@ export default function WorryPage() {
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-center p-4 bg-white">
-      <div className="w-full max-w-[390px] aspect-[9/19.5] relative">
-        <div className="absolute inset-0">
+      <div className="w-full max-w-[430px] mx-auto">
+        <div className="w-full">
           <Image
             src={showResponse ? "/고민해결.png" : "/고민책.png"}
             alt={showResponse ? "고민해결" : "고민책"}
@@ -49,7 +49,7 @@ export default function WorryPage() {
           />
         </div>
         
-        <div className="relative w-full h-full flex flex-col px-8" style={{ paddingBottom: '10%' }}>
+        <div className="relative w-full h-full flex flex-col px-8" style={{ paddingBottom: '0%' }}>
           {!showResponse ? (
             <div className="mt-auto">
               <textarea
@@ -68,36 +68,39 @@ export default function WorryPage() {
               </button>
             </div>
           ) : (
-            <div className="relative w-full h-full flex items-center justify-center">
-              <div className="bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg max-w-[80%] relative mt-[20%] mb-[30%]">
-                <div className="absolute -top-3 -left-3 w-6 h-6 bg-white/90 rounded-full" />
-                <p className="text-gray-800 whitespace-pre-line text-sm">
-                  {aiResponse}
-                </p>
+              <div className="relative w-full h-full flex flex-col items-center justify-center gap-6">
+                {/* 💬 말풍선 */}
+                <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg max-w-[90%] relative">
+                  <div className="absolute -top-3 -left-3 w-6 h-6 bg-white/90 rounded-full" />
+                  <p className="text-gray-800 whitespace-pre-line text-sm">
+                    {aiResponse}
+                  </p>
+                </div>
+
+                {/* 🔘 버튼 영역 (말풍선 밖에 위치) */}
+                <div className="flex flex-col items-center gap-[15px]">
+                  <a
+                    href="https://tutorteamsparta.ninehire.site/job_posting/J5Ygb1Ha?utm_source=2025ITRC"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-orange-600 text-white px-5 py-2 rounded-lg font-bold hover:bg-orange-700 transition-colors text-center"
+                  >
+                    튜터풀 등록하기
+                  </a>
+
+                  <button
+                    className="bg-orange-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-orange-700 transition-colors"
+                    onClick={() => {
+                      setShowResponse(false)
+                      setWorry('')
+                      setAiResponse('')
+                    }}
+                  >
+                    다시 작성하기
+                  </button>
+                </div>
               </div>
-              
-              <div className="absolute bottom-[10%] left-1/2 transform -translate-x-1/2 flex flex-col gap-[15px]">
-                <a
-                  href="https://tutorteamsparta.ninehire.site/job_posting/J5Ygb1Ha?utm_source=2025ITRC"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-orange-600 text-white px-5 py-2 rounded-lg font-bold hover:bg-orange-700 transition-colors text-center"
-                >
-                  튜터풀 등록하기
-                </a>
-                
-                <button
-                  className="bg-orange-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-orange-700 transition-colors"
-                  onClick={() => {
-                    setShowResponse(false)
-                    setWorry('')
-                    setAiResponse('')
-                  }}
-                >
-                  다시 작성하기
-                </button>
-              </div>
-            </div>
+
           )}
         </div>
       </div>
