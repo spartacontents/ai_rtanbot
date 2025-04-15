@@ -55,7 +55,7 @@ export default function WorryPage() {
               <textarea
                 value={worry}
                 onChange={(e) => setWorry(e.target.value)}
-                placeholder="당신의 고민을 적어주세요..."
+                placeholder="고민을 입력해주세요."
                 className="w-full h-[100px] p-4 bg-white/80 backdrop-blur-sm border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none resize-none"
               />
               
@@ -64,18 +64,20 @@ export default function WorryPage() {
                 onClick={handleSubmit}
                 disabled={isLoading || !worry.trim()}
               >
-                {isLoading ? '답변 생성 중...' : '고민 제출하기'}
+                {isLoading ? '르탄이가 해결 방안 모색 중…' : '고민 털어놓기'}
               </button>
             </div>
           ) : (
-              <div className="relative w-full h-full flex flex-col items-center justify-center gap-6">
-                {/* 💬 말풍선 */}
-                <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg max-w-[90%] relative">
-                  <div className="absolute -top-3 -left-3 w-6 h-6 bg-white/90 rounded-full" />
-                  <p className="text-gray-800 whitespace-pre-line text-sm">
-                    {aiResponse}
-                  </p>
-                </div>
+            <div className="relative w-full min-h-[700px] flex flex-col items-center pt-[0%] gap-6">
+            {/* 💬 말풍선 */}
+            <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg w-full relative">
+              <div className="absolute -top-3 -left-3 w-6 h-6 bg-white/90 rounded-full" />
+              <div className="max-h-[350px] overflow-y-auto">
+                <p className="text-gray-800 whitespace-pre-line text-sm">
+                  {aiResponse}
+                </p>
+              </div>
+            </div>
 
                 {/* 🔘 버튼 영역 (말풍선 밖에 위치) */}
                 <div className="flex flex-col items-center gap-[15px]">
@@ -87,7 +89,14 @@ export default function WorryPage() {
                   >
                     튜터풀 등록하기
                   </a>
-
+                  <a
+                    href="https://tutorteamsparta.ninehire.site/job_posting/J5Ygb1Ha?utm_source=2025ITRC"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-orange-600 text-white px-5 py-2 rounded-lg font-bold hover:bg-orange-700 transition-colors text-center"
+                  >
+                    튜터 더 알아보기
+                  </a>
                   <button
                     className="bg-orange-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-orange-700 transition-colors"
                     onClick={() => {
