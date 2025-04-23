@@ -140,10 +140,11 @@ export default function WorryPage() {
 
             {/* ⬇️ 아래로 스크롤 유도 화살표 */}
             {showArrow && (
-              <div className="fixed top-[355px] left-1/2 transform -translate-x-1/2 z-50 animate-bounce">
-                <span className="text-2xl text-gray-600">↓</span>
+              <div className="fixed top-[350px] left-[48%] transform -translate-x-1/2 z-50 animate-bounce">
+                <span className="text-3xl text-gray-500">↓</span>
               </div>
             )}
+
 
             {/* 버튼1 */}
             <div className="fixed top-[385px] left-0 w-full flex justify-center items-center">
