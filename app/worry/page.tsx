@@ -66,7 +66,7 @@ export default function WorryPage() {
                     style={{ marginTop: '100px', fontSize: '20px' }}
                   />
                   
-                  <div style={{ position: 'absolute', top: '70%', width: '100%', display: 'flex', justifyContent: 'center' }}>
+                  <div style={{ position: 'absolute', top: '480px', width: '100%', display: 'flex', justifyContent: 'center' }}>
                     <button 
                       className="w-[200px] h-[50px] disabled:opacity-50 bg-transparent"
                       onClick={handleSubmit}
@@ -91,13 +91,13 @@ export default function WorryPage() {
             <div className="relative w-full min-h-[700px] flex flex-col items-center pt-[0%] gap-6">
             {/* 💬 말풍선 */}
             <div 
-              className="fixed w-[80%] max-h-[25vh] overflow-y-auto"
+              className="fixed w-[80%] max-h-[200px] overflow-y-auto"
               style={{
-                top: '35%',
+                top: '250px',
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
                 backgroundColor: 'transparent',
-                padding: '15px',
+                padding: '20px 20px 30px 20px',
                 scrollbarWidth: 'none', // Firefox
                 msOverflowStyle: 'none', // IE and Edge
               }}
@@ -121,14 +121,14 @@ export default function WorryPage() {
               }
             `}</style>
               {/* 중간에 위치할 새로운 버튼 */}
-              <div className="fixed bottom-[35%] left-0 w-full flex justify-center items-center">
+              <div className="fixed top-[385px] left-0 w-full flex justify-center items-center">
                 <a
                   href="https://tutorteamsparta.ninehire.site/job_posting/J5Ygb1Ha?utm_source=2025ITRC"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
                     display: 'block',
-                    width: '300px',
+                    width: '280px',
                     height: '0',
                     paddingBottom: '15%',
                     backgroundImage: "url('/page3 btn1.png')",
@@ -142,14 +142,14 @@ export default function WorryPage() {
               </div>
             {/* 🔘 버튼 영역 */}
             
-            <div className="fixed bottom-[10%] left-0 w-full flex justify-center items-center">
+            <div className="fixed top-[580px] left-0 w-full flex justify-center items-center">
               <a
                 href="https://teamsparta-tutor-introduction.oopy.io/"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
                   display: 'block',
-                  width: '300px',  // 이미지의 최대 너비 설정
+                  width: '280px',  // 이미지의 최대 너비 설정
                   height: '0',
                   paddingBottom: '15%',  // 이미지의 비율에 따라 조정 (예: 15%)
                   backgroundImage: "url('/page3 btn2.png')",
