@@ -8,20 +8,20 @@ export default function Home() {
         <Image
           src="/page1.png"
           alt="메인 이미지"
-          width={402}
-          height={402}
+          width={350}
+          height={350}
           className="object-contain"
           priority
         />
       </div>
 
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center">
-        <div className="absolute left-1/2 bottom-[10%] transform -translate-x-1/2 w-[80%] max-w-[300px]">
+        <div className="absolute left-1/2 top-[70%] transform -translate-x-1/2 w-[60%] max-w-[300px]">
           <Link href="/worry">
             <Image
               src="/page1 btn.png"
               alt="고민 상담 시작하기"
-              width={300}
+              width={200}
               height={60}
               className="hover:opacity-90 transition-opacity cursor-pointer w-full h-auto"
               priority

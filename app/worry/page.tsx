@@ -36,18 +36,18 @@ export default function WorryPage() {
     }
   }
 
-  return (
-
-    <main className="min-h-screen flex flex-col items-center justify-center p-4 bg-white relative">
-        <div className="absolute inset-0 w-full h-full">
-          <Image
-            src={showResponse ? "/page3.png" : "/page2.png"}
-            alt={showResponse ? "page3" : "page2"}
-            fill
-            className="object-contain"
-            priority
-          />
-        </div>
+  return (    
+  <main className="min-h-screen flex flex-col items-center justify-center p-4 bg-white relative">
+    <div className="absolute inset-0 flex items-center justify-center" style={{ paddingTop: '5px' }}>
+      <Image
+        src={showResponse ? "/page3.png" : "/page2.png"}
+        alt={showResponse ? "page3" : "page2"}
+        width={402}
+        height={402}
+        className="object-contain"
+        priority
+      />
+    </div>
         <div className="relative w-full h-full flex flex-col px-8" style={{ paddingBottom: '0%' }}>
           {!showResponse ? (
             <div className="mt-auto flex flex-col items-center w-full" style={{ height: '100vh' }}>
