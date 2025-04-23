@@ -81,43 +81,76 @@ export default function WorryPage() {
           ) : (
             <div className="relative w-full min-h-[700px] flex flex-col items-center pt-[0%] gap-6">
             {/* 💬 말풍선 */}
-            <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-lg w-full relative">
-              <div className="absolute -top-3 -left-3 w-6 h-6 bg-white/90 rounded-full" />
-              <div className="max-h-[350px] overflow-y-auto">
-                <p className="text-gray-800 whitespace-pre-line text-sm">
-                  {aiResponse}
-                </p>
-              </div>
+            <div 
+              className="fixed w-[80%] max-h-[25vh] overflow-y-auto"
+              style={{
+                top: '35%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                backgroundColor: 'transparent',
+                padding: '15px',
+                scrollbarWidth: 'none', // Firefox
+                msOverflowStyle: 'none', // IE and Edge
+              }}
+            >
+              <p 
+                className="text-gray-800 whitespace-pre-line text-sm text-center"
+                style={{
+                  wordBreak: 'break-word',
+                  lineHeight: '1.4',
+                  margin: '0'
+                }}
+              >
+                {aiResponse}
+              </p>
             </div>
 
-                {/* 🔘 버튼 영역 (말풍선 밖에 위치) */}
-                <div className="flex flex-col items-center gap-[15px]">
-                  <a
-                    href="https://tutorteamsparta.ninehire.site/job_posting/J5Ygb1Ha?utm_source=2025ITRC"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-orange-600 text-white px-5 py-2 rounded-lg font-bold hover:bg-orange-700 transition-colors text-center"
-                  >
-                    튜터풀 등록하기
-                  </a>
-                  <a
-                    href="https://tutorteamsparta.ninehire.site/job_posting/J5Ygb1Ha?utm_source=2025ITRC"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-orange-600 text-white px-5 py-2 rounded-lg font-bold hover:bg-orange-700 transition-colors text-center"
-                  >
-                    튜터 더 알아보기
-                  </a>
-                  <button
-                    className="bg-orange-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-orange-700 transition-colors"
-                    onClick={() => {
-                      setShowResponse(false)
-                      setWorry('')
-                      setAiResponse('')
-                    }}
-                  >
-                    다시 작성하기
-                  </button>
+            {/* 스크롤바 숨김 스타일 */}
+            <style jsx global>{`
+              div::-webkit-scrollbar {
+                display: none;
+              }
+            `}</style>
+              {/* 중간에 위치할 새로운 버튼 */}
+              <div className="fixed bottom-[35%] left-0 w-full flex justify-center items-center">
+                <a
+                  href="https://tutorteamsparta.ninehire.site/job_posting/J5Ygb1Ha?utm_source=2025ITRC"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'block',
+                    width: '300px',
+                    height: '0',
+                    paddingBottom: '15%',
+                    backgroundImage: "url('/page3 btn1.png')",
+                    backgroundSize: 'contain',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center'
+                  }}
+                >
+                  <span className="opacity-0">튜터 등록하기기</span>
+                </a>
+              </div>
+            {/* 🔘 버튼 영역 */}
+            
+            <div className="fixed bottom-[10%] left-0 w-full flex justify-center items-center">
+              <a
+                href="https://teamsparta-tutor-introduction.oopy.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'block',
+                  width: '300px',  // 이미지의 최대 너비 설정
+                  height: '0',
+                  paddingBottom: '15%',  // 이미지의 비율에 따라 조정 (예: 15%)
+                  backgroundImage: "url('/page3 btn2.png')",
+                  backgroundSize: 'contain',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'center'
+                }}
+              >
+                <span className="opacity-0">튜터 더 알아보기</span>
+              </a>
                 </div>
               </div>
 
