@@ -16,7 +16,7 @@ export default function Home() {
   </div>
 
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center">
-        <div className="absolute left-1/2 top-[70%] transform -translate-x-1/2 w-[60%] max-w-[300px]">
+        <div className="absolute left-1/2 top-[480px] transform -translate-x-1/2 w-[60%] max-w-[300px]">
           <Link href="/worry">
             <Image
               src="/page1 btn.png"

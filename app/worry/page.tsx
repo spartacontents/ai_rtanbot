@@ -38,12 +38,12 @@ export default function WorryPage() {
 
   return (    
   <main className="min-h-screen flex flex-col items-center justify-center p-4 bg-white relative">
-    <div className="absolute inset-0 flex items-center justify-center" style={{ paddingTop: '5px' }}>
+    <div className="absolute top-[10px] inset-x-0 flex items-center justify-center">
       <Image
         src={showResponse ? "/page3.png" : "/page2.png"}
         alt={showResponse ? "page3" : "page2"}
-        width={402}
-        height={402}
+        width={350}
+        height={350}
         className="object-contain"
         priority
       />
@@ -51,32 +51,41 @@ export default function WorryPage() {
         <div className="relative w-full h-full flex flex-col px-8" style={{ paddingBottom: '0%' }}>
           {!showResponse ? (
             <div className="mt-auto flex flex-col items-center w-full" style={{ height: '100vh' }}>
-              <textarea
-                value={worry}
-                onChange={(e) => setWorry(e.target.value)}
-                placeholder="고민을 입력해주세요."
-                className="w-[90%] h-[100px] p-4 bg-transparent text-black placeholder-gray-500 focus:outline-none resize-none text-center"
-                style={{ marginTop: '35vh',    fontSize: '20px'  }}
-              />
-              
-              <div style={{ position: 'absolute', bottom: '20%', width: '100%', display: 'flex', justifyContent: 'center' }}>
-                <button 
-                  className="w-[200px] h-[50px] disabled:opacity-50 bg-transparent"
-                  onClick={handleSubmit}
-                  disabled={isLoading || !worry.trim()}
-                  style={{
-                    backgroundImage: "url('/page2 btn.png')",
-                    backgroundSize: 'contain',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundPosition: 'center',
-                    border: 'none'
-                  }}
-                >
-                  <span className="opacity-0">
-                    {isLoading ? '르탄이가 해결 방안 모색 중…' : '고민 털어놓기'}
-                  </span>
-                </button>
-              </div>
+              {isLoading ? (
+                <div className="fixed inset-0 flex flex-col items-center justify-center bg-white bg-opacity-80 z-50">
+                  <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-gray-900 mb-4"></div>
+                  <p className="text-xl text-gray-800">르탄이가 해결 방안 모색 중…</p>
+                </div>
+              ) : (
+                <>
+                  <textarea
+                    value={worry}
+                    onChange={(e) => setWorry(e.target.value)}
+                    placeholder="고민을 입력해주세요."
+                    className="w-[90%] h-[200px] p-4 bg-transparent text-black placeholder-gray-500 focus:outline-none resize-none text-center"
+                    style={{ marginTop: '100px', fontSize: '20px' }}
+                  />
+                  
+                  <div style={{ position: 'absolute', top: '70%', width: '100%', display: 'flex', justifyContent: 'center' }}>
+                    <button 
+                      className="w-[200px] h-[50px] disabled:opacity-50 bg-transparent"
+                      onClick={handleSubmit}
+                      disabled={isLoading || !worry.trim()}
+                      style={{
+                        backgroundImage: "url('/page2 btn.png')",
+                        backgroundSize: 'contain',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center',
+                        border: 'none'
+                      }}
+                    >
+                      <span className="opacity-0">
+                        {isLoading ? '르탄이가 해결 방안 모색 중…' : '고민 털어놓기'}
+                      </span>
+                    </button>
+                  </div>
+                </>
+              )}
             </div>
           ) : (
             <div className="relative w-full min-h-[700px] flex flex-col items-center pt-[0%] gap-6">
