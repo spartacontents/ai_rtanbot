@@ -37,35 +37,46 @@ export default function WorryPage() {
   }
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center p-4 bg-white">
-      <div className="w-full max-w-[430px] mx-auto">
-        <div className="w-full">
+
+    <main className="min-h-screen flex flex-col items-center justify-center p-4 bg-white relative">
+        <div className="absolute inset-0 w-full h-full">
           <Image
-            src={showResponse ? "/고민해결.png" : "/고민책.png"}
-            alt={showResponse ? "고민해결" : "고민책"}
+            src={showResponse ? "/page3.png" : "/page2.png"}
+            alt={showResponse ? "page3" : "page2"}
             fill
-            className="object-cover"
+            className="object-contain"
             priority
           />
         </div>
-        
         <div className="relative w-full h-full flex flex-col px-8" style={{ paddingBottom: '0%' }}>
           {!showResponse ? (
-            <div className="mt-auto">
+            <div className="mt-auto flex flex-col items-center w-full" style={{ height: '100vh' }}>
               <textarea
                 value={worry}
                 onChange={(e) => setWorry(e.target.value)}
                 placeholder="고민을 입력해주세요."
-                className="w-full h-[100px] p-4 bg-white/80 backdrop-blur-sm border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none resize-none"
+                className="w-[90%] h-[100px] p-4 bg-transparent text-black placeholder-gray-500 focus:outline-none resize-none text-center"
+                style={{ marginTop: '35vh',    fontSize: '20px'  }}
               />
               
-              <button 
-                className="w-full mt-4 bg-orange-600 text-white py-4 rounded-lg font-bold hover:bg-orange-600 transition-colors disabled:opacity-50"
-                onClick={handleSubmit}
-                disabled={isLoading || !worry.trim()}
-              >
-                {isLoading ? '르탄이가 해결 방안 모색 중…' : '고민 털어놓기'}
-              </button>
+              <div style={{ position: 'absolute', bottom: '20%', width: '100%', display: 'flex', justifyContent: 'center' }}>
+                <button 
+                  className="w-[200px] h-[50px] disabled:opacity-50 bg-transparent"
+                  onClick={handleSubmit}
+                  disabled={isLoading || !worry.trim()}
+                  style={{
+                    backgroundImage: "url('/page2 btn.png')",
+                    backgroundSize: 'contain',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center',
+                    border: 'none'
+                  }}
+                >
+                  <span className="opacity-0">
+                    {isLoading ? '르탄이가 해결 방안 모색 중…' : '고민 털어놓기'}
+                  </span>
+                </button>
+              </div>
             </div>
           ) : (
             <div className="relative w-full min-h-[700px] flex flex-col items-center pt-[0%] gap-6">
@@ -112,7 +123,6 @@ export default function WorryPage() {
 
           )}
         </div>
-      </div>
     </main>
   )
 } 
