@@ -3,17 +3,17 @@ import Link from "next/link"
 
 export default function Home() {
   return (
-    <main className="min-h-screen relative overflow-hidden" style={{ backgroundColor: '#ffffff' }}>
-      <div className="absolute inset-0 flex items-center justify-center">
-        <Image
-          src="/page1.png"
-          alt="메인 이미지"
-          width={350}
-          height={350}
-          className="object-contain"
-          priority
-        />
-      </div>
+<main className="min-h-screen relative overflow-hidden" style={{ backgroundColor: '#ffffff' }}>
+  <div className="absolute top-[10px] inset-x-0 flex items-center justify-center">
+    <Image
+      src="/page1.png"
+      alt="메인 이미지"
+      width={350}
+      height={350}
+      className="object-contain"
+      priority
+    />
+  </div>
 
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center">
         <div className="absolute left-1/2 top-[70%] transform -translate-x-1/2 w-[60%] max-w-[300px]">
