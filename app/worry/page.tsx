@@ -91,33 +91,43 @@ export default function WorryPage() {
             <div className="relative w-full min-h-[700px] flex flex-col items-center pt-[0%] gap-6">
             {/* 💬 말풍선 */}
             <div 
-              className="fixed w-[270px] max-h-[200px] overflow-y-auto overflow-x-auto"
+              className="fixed w-[55%] max-h-[200px] overflow-y-auto overflow-x-auto"
               style={{
                 top: '250px',
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
                 backgroundColor: 'transparent',
                 padding: '20px 20px 30px 20px',
-                scrollbarWidth: 'none', // Firefox
-                msOverflowStyle: 'none', // IE and Edge
               }}
             >
               <p 
-                className="text-gray-800 whitespace-nowrap text-sm text-center"
+                className="text-gray-800 whitespace-pre-wrap text-sm text-center"
                 style={{
-                  wordBreak: 'keep-all',
+                  wordBreak: 'break-all',
                   lineHeight: '1.4',
-                  margin: '0'
+                  margin: '0',
+                  minWidth: '100%'
                 }}
               >
                 {aiResponse}
               </p>
             </div>
 
-            {/* 스크롤바 숨김 스타일 */}
+            {/* 스크롤바 스타일 */}
             <style jsx global>{`
               div::-webkit-scrollbar {
-                display: none;
+                width: 6px;
+                height: 6px;
+              }
+              div::-webkit-scrollbar-track {
+                background: transparent;
+              }
+              div::-webkit-scrollbar-thumb {
+                background: #e83750;
+                border-radius: 3px;
+              }
+              div::-webkit-scrollbar-thumb:hover {
+                background: #555;
               }
             `}</style>
               {/* 중간에 위치할 새로운 버튼 */}
