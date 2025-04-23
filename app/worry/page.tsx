@@ -91,7 +91,7 @@ export default function WorryPage() {
             <div className="relative w-full min-h-[700px] flex flex-col items-center pt-[0%] gap-6">
             {/* 💬 말풍선 */}
             <div 
-              className="fixed w-[280px] max-h-[200px] overflow-y-auto"
+              className="fixed w-[270px] max-h-[200px] overflow-y-auto overflow-x-auto"
               style={{
                 top: '250px',
                 left: '50%',
@@ -103,9 +103,9 @@ export default function WorryPage() {
               }}
             >
               <p 
-                className="text-gray-800 whitespace-pre-line text-sm text-center"
+                className="text-gray-800 whitespace-nowrap text-sm text-center"
                 style={{
-                  wordBreak: 'break-word',
+                  wordBreak: 'keep-all',
                   lineHeight: '1.4',
                   margin: '0'
                 }}
