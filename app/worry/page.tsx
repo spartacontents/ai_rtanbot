@@ -91,7 +91,7 @@ export default function WorryPage() {
             <div className="relative w-full min-h-[700px] flex flex-col items-center pt-[0%] gap-6">
             {/* 💬 말풍선 */}
             <div 
-              className="fixed w-[55%] max-h-[200px] overflow-y-auto overflow-x-auto"
+              className="fixed w-[55%] max-h-[200px] overflow-y-auto"
               style={{
                 top: '250px',
                 left: '50%',
