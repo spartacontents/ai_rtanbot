@@ -114,7 +114,7 @@ export default function WorryPage() {
         ) : (
           <div className="relative w-full min-h-[700px] flex flex-col items-center pt-[0%] gap-6">
             {/* 💬 말풍선 */}
-            <div 
+                        <div 
               ref={bubbleRef}
               className="fixed w-[60%] max-h-[200px] overflow-y-auto"
               style={{
@@ -123,8 +123,16 @@ export default function WorryPage() {
                 transform: 'translate(-50%, -50%)',
                 backgroundColor: 'transparent',
                 padding: '20px 20px 30px 20px',
+                scrollbarWidth: 'none', // Firefox
+                msOverflowStyle: 'none', // IE/Edge
+                overflowY: 'auto'
               }}
             >
+              <style jsx>{`
+                div::-webkit-scrollbar {
+                  display: none; /* Chrome, Safari */
+                }
+              `}</style>
               <p 
                 className="text-gray-800 whitespace-pre-wrap text-sm text-center"
                 style={{
@@ -140,10 +148,16 @@ export default function WorryPage() {
 
             {/* ⬇️ 아래로 스크롤 유도 화살표 */}
             {showArrow && (
-              <div className="fixed top-[350px] left-[48%] transform -translate-x-1/2 z-50 animate-bounce">
-                <span className="text-3xl text-gray-500">↓</span>
+              <div className="fixed top-[350px] left-1/2 transform -translate-x-1/2 z-50 animate-bounce">
+                <span 
+                  className="text-2xl"
+                  style={{ color: 'rgba(232, 52, 78, 0.8)' }}
+                >
+                  ↓
+                </span>
               </div>
             )}
+
 
 
             {/* 버튼1 */}
