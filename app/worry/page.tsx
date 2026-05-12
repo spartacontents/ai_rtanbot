@@ -63,7 +63,7 @@ export default function WorryPage() {
   const frameAspect = showResponse ? '753 / 1386' : '753 / 1255'
 
   return (
-    <main className="min-h-screen flex justify-center bg-white">
+    <main className="min-h-screen flex items-start justify-center bg-white">
       <div
         className="relative w-full max-w-[430px]"
         style={{ aspectRatio: frameAspect }}
