@@ -1,10 +1,21 @@
 // app/api/chat/route.ts
 import { NextRequest, NextResponse } from "next/server"
 
+export const runtime = "nodejs"
+export const maxDuration = 60
+
 const GEMINI_MODEL = "gemini-2.5-flash"
 
 export async function POST(req: NextRequest) {
   const { userName, concern } = await req.json()
+
+  if (!process.env.GEMINI_API_KEY) {
+    console.error("[api/chat] GEMINI_API_KEY is not set")
+    return NextResponse.json(
+      { message: null, error: "GEMINI_API_KEY is not set on the server." },
+      { status: 500 },
+    )
+  }
 
   const prompt = `
 사용자 이름: ${userName}
@@ -19,22 +30,45 @@ export async function POST(req: NextRequest) {
 > 튜터 지원하러가기 : https://spartacodingclub.kr/"
 `
 
-  const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${process.env.GEMINI_API_KEY}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+  try {
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${process.env.GEMINI_API_KEY}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{ role: "user", parts: [{ text: prompt }] }],
+          generationConfig: { temperature: 0.7 },
+        }),
       },
-      body: JSON.stringify({
-        contents: [{ role: "user", parts: [{ text: prompt }] }],
-        generationConfig: { temperature: 0.7 },
-      }),
-    },
-  )
+    )
 
-  const data = await res.json()
-  const aiMessage = data?.candidates?.[0]?.content?.parts?.[0]?.text ?? null
+    const data = await res.json()
 
-  return NextResponse.json({ message: aiMessage })
+    if (!res.ok) {
+      console.error("[api/chat] Gemini API error:", res.status, JSON.stringify(data))
+      return NextResponse.json(
+        { message: null, error: data?.error?.message ?? `Gemini API ${res.status}` },
+        { status: 502 },
+      )
+    }
+
+    const aiMessage = data?.candidates?.[0]?.content?.parts?.[0]?.text ?? null
+
+    if (!aiMessage) {
+      console.error("[api/chat] No text in response:", JSON.stringify(data))
+      return NextResponse.json(
+        { message: null, error: "No text returned by Gemini.", raw: data },
+        { status: 502 },
+      )
+    }
+
+    return NextResponse.json({ message: aiMessage })
+  } catch (err) {
+    console.error("[api/chat] Fetch failed:", err)
+    return NextResponse.json(
+      { message: null, error: (err as Error).message },
+      { status: 500 },
+    )
+  }
 }

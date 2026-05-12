@@ -161,7 +161,7 @@ export default function WorryPage() {
 
 
             {/* 버튼1 */}
-            <div className="fixed top-[385px] left-0 w-full flex justify-center items-center">
+            <div className="fixed top-[530px] left-0 w-full flex justify-center items-center">
               <a
                 href="https://tutorteamsparta.ninehire.site/job_posting/J5Ygb1Ha?utm_source=2025ITRC"
                 target="_blank"
@@ -198,7 +198,7 @@ export default function WorryPage() {
                   backgroundPosition: 'center'
                 }}
               >
-                <span className="opacity-0">튜터 더 알아보기</span>
+                <span className="opacity-0">팀스파르타 튜터 자세히 알아보기</span>
               </a>
             </div>
           </div>
